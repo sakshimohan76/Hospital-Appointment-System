@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% block content %}
+<a href="javascript:history.back()" class="btn btn-dark">Back</a>
+<h1 align="center">Login</h1>
+<form method="POST">
+  <div class="container my-3">
+      <div class="badge badge-dark text-wrap" style="width: 10rem; font-size: 1.2rem;">
+        Enter email
+      </div> <br>
+      <label for="email">
+      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+      </label>
+      <br> <br>
+      <div class="badge badge-dark text-wrap" style="width: 10rem; font-size: 1.2rem;">
+        Enter password
+      </div> <br>
+      <input type="password" class="form-control" name="dPassword1" placeholder="Password">
+      <br> <br>
+      <button type="submit" class="btn btn-dark">Login</button>
+  </div>  
+  </form>
+
+{% endblock content %}  

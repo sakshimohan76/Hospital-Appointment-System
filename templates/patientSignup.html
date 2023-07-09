@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block content %}
+<a href="javascript:history.back()" class="btn btn-dark">Back</a>
+<h1 align="center">Enter your credentials to sign-up.</h1>]
+<form method="POST" action="/patientSignup">
+    <div class="container">
+    <div class="badge badge-dark text-wrap" style="width: 10rem; font-size: 1.2rem;">
+        Enter full name
+      </div> <br>
+        <input type="text" class="form-control" name="pName" placeholder="Full name">
+       <br>
+    <div class="badge badge-dark text-wrap" style="width: 10rem; font-size: 1.2rem;">
+        Enter email
+      </div> <br>
+      <label for="email">
+      <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+      </label>
+      <br>
+    <div class="badge badge-dark text-wrap" style="width: 10rem; font-size: 1.2rem;">
+        Enter password
+      </div> <br>
+      <label for="pPassword1" >
+      <input type="password" class="form-control" name="pPassword1" id="pPassword1" placeholder="Password">
+      </label>
+      <br>
+      <div class="badge badge-dark text-wrap" style="width: 20rem; font-size: 1.2rem;">
+        Confirm password
+      </div> <br>
+      <label for="pPassword2" >
+      <input type="password" class="form-control" name="pPassword2" id="pPassword2" placeholder="Confirm assword">
+      </label>
+      <br>
+      <button type="submit" class="btn btn-dark">Sign up</button>
+    </div>   
+  </form>
+  {% endblock content %}  

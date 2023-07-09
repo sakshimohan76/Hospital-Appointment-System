@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% block content %}
+<h1>See your appointments</h1>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date</th>
+        <th scope="col">Cancel</th>
+      </tr>
+    </thead>
+    
+  {% for todo in appoint %}
+  <tbody>
+  <tr>
+    <th scope="row">{{loop.index}}</th>
+    <td>{{todo.pName}}</td>
+    <td>{{todo.data}}</td>
+    <td>{{todo.date}}</td>
+    <td>
+      <a href="/delete1/{{todo.id}}" type="button" class="btn btn-outline-dark btm-sm mx-1">Cancel</a>
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}

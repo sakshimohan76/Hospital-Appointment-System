@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Management system</title>
+    <style>
+        body {
+          font-size: 18px;
+          background-image: url(https://previews.123rf.com/images/leventegyori/leventegyori1506/leventegyori150600296/41666563-doctor-with-medical-background.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        .center-items{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <form action="/logout">
+          <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+{% block content %}
+      
+<h1 align="center">Make an appointment.</h1>
+<br><br>
+<div class="form-container">
+        <div class="center-items">
+        <form method="POST" action="/appointment" onsubmit="submitForm(event)">
+          <label for="name">Email:</label>
+          <input type="email" id="name" name="name" required>
+          <br><br><br>
+          <label for="message">Description:</label>
+          <textarea id="message" name="message" required></textarea>
+          <br><br><br>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required>
+          <br><br><br>
+          <div align="center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+         </form>
+         </div>
+</div>
+
+<ul class="list-group list-group-flush" id="appoint">
+    <div class="container">
+      <h3>Appointments</h3>
+            <!-- {% if allAppoint|length==0 %}
+            <div class="alert alert-dark" role="alert">
+              No appointments.
+            </div>
+            {% else %} -->
+             <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Cancel</th>
+                </tr>
+              </thead>
+              
+            {% for todo in allAppoint %}
+            <tbody>
+            <tr>
+              <th scope="row">{{loop.index}}</th>
+              <td>{{todo.pName}}</td>
+              <td>{{todo.data}}</td>
+              <td>{{todo.date}}</td>
+              <td>
+                <a href="/delete/{{todo.id}}" type="button" class="btn btn-outline-dark btm-sm mx-1">Cancel</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          </table>
+            {% endif %}
+            
+          
+  </div>
+  </ul>
+{% endblock content %}
+</body>
+</html>

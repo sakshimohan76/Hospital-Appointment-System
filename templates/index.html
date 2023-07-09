@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/main.css">
+    <!-- <style>
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("https://blog.kindgeek.com/wp-content/uploads/2019/12/OBUZORLdEFO3HofPcHMa-1024x654.jpeg");
+    background-color: rgb(0, 187, 255); 
+  }
+
+ .text{
+  text-align: center;
+}
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border: none;
+  }
+
+  .top-section {
+    background-color: #898787;
+    height: 20%;
+    border: none;
+    background-image: url("https://blogimages.softwaresuggest.com/blog/wp-content/uploads/2021/05/10192350/Top-8-Benefits-of-Having-A-Smart-Hospital-Management-System.png");
+  }
+
+  .bottom-section {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    border: none;
+    background-color: rgb(122, 124, 124);
+    background-image: url("https://blogimages.softwaresuggest.com/blog/wp-content/uploads/2021/05/10192350/Top-8-Benefits-of-Having-A-Smart-Hospital-Management-System.png");
+  }
+
+  .column {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+    </style> -->
+
+    <title>Appointment System</title>
+  </head>
+  <body>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-light" href="/logout">Logout</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+  </nav> -->
+    {% with messages=get_flashed_messages(with_categories=true)%}
+    {% if messages%}
+    {% for category, message in messages %}
+    {% if category=='error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {%endif%}
+    {% endwith %}
+
+
+    {% block content%}
+    <div class="container">
+        <div class="top-section">
+          <h1 align="center">Healthcare</h1>
+        </div>
+        <div class="bottom-section">
+          <div class="column">
+            <h3 align="center">Patient registration</h3>
+            <br> <br>
+            <div class="text my-3">
+              <a class="btn btn-dark" href="/patientLogin" role="button" >Login</a>
+              <br> <br> <br>
+              <a class="btn btn-dark" href="/patientSignup" role="button">Sign up</a>
+            </div>
+          </div>
+          <div class="column">
+            <h3 align="center">Doctor registration</h3>
+            <br> <br>
+            <div class="text my-3">
+              <a class="btn btn-dark" href="/doctorLogin" role="button" >Login</a>
+              <br> <br> <br>
+              <a class="btn btn-dark" href="/doctorSignup" role="button">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endblock content%}
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
